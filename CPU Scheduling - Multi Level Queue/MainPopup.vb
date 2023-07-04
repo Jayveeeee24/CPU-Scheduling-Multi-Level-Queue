@@ -1,10 +1,10 @@
 ﻿Public Class MainPopup
 
+
     Public Class Queue
         Public Property QueueNo As String
         Public Property Algorithm As String
         Public Property TimeQuantum As Integer
-        Public Property Priority As Integer
     End Class
     Dim queues As New List(Of Queue)()
 
@@ -32,9 +32,12 @@
         End If
 
         For i As Integer = 0 To Integer.Parse(txtQueueCount.Text) - 1
-            datagridQueue.Rows.Add("Q" & (i + 1), "", "")
+            datagridQueue.Rows.Add((i + 1), "", "")
         Next
         txtQueueCount.Text = ""
+    End Sub
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        datagridQueue.Rows.Clear()
     End Sub
 
     Private Sub DataGridView_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles datagridQueue.EditingControlShowing
@@ -97,16 +100,13 @@
             queue.QueueNo = queueNoCell.Value.ToString()
             queue.Algorithm = algorithmCell.Value.ToString()
             Integer.TryParse(timeQuantumCell.Value.ToString(), queue.TimeQuantum)
-            queue.Priority = queues.Count + 1
 
             queues.Add(queue)
         Next
 
         MainForm.Queues = queues
-        Me.Close()
+        Me.Hide()
+        MainForm.Show()
     End Sub
-
-
-
 
 End Class

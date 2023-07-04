@@ -12,4 +12,4 @@ C:\D\Project Files\Visual Studio\CPU Scheduling - Multi Level Queue\CPU Scheduli
 C:\D\Project Files\Visual Studio\CPU Scheduling - Multi Level Queue\CPU Scheduling - Multi Level Queue\obj\Debug\CPU Scheduling - Multi Level Queue.pdb
 C:\D\Project Files\Visual Studio\CPU Scheduling - Multi Level Queue\CPU Scheduling - Multi Level Queue\obj\Debug\CPU_Scheduling___Multi_Level_Queue.MainForm.resources
 C:\D\Project Files\Visual Studio\CPU Scheduling - Multi Level Queue\CPU Scheduling - Multi Level Queue\obj\Debug\CPU_Scheduling___Multi_Level_Queue.MainPopup.resources
-C:\D\Project Files\Visual Studio\CPU Scheduling - Multi Level Queue\CPU Scheduling - Multi Level Queue\obj\Debug\CPU_Scheduling___Multi_Level_Queue.Form1.resources
+C:\D\Project Files\Visual Studio\CPU Scheduling - Multi Level Queue\CPU Scheduling - Multi Level Queue\obj\Debug\CPU_Scheduling___Multi_Level_Queue.AddProcess.resources

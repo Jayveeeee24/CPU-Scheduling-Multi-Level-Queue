@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.CPU_Scheduling___Multi_Level_Queue.MainForm
+            Me.MainForm = Global.CPU_Scheduling___Multi_Level_Queue.MainPopup
         End Sub
     End Class
 End Namespace
