@@ -27,5 +27,10 @@ CPU Scheduling - Multi Level Queue
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:CPU_Scheduling___Multi_Level_Queue.My.Resources.Resources.delete_white">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 </members>
 </doc>

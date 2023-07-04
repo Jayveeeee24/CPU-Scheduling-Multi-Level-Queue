@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainPopup
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MainPopup
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -33,25 +33,28 @@ Partial Class MainPopup
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.comboChooseMultiLevel = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.labelBldgNo = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btnAddQueue = New System.Windows.Forms.Button()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.labelQueueNo = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.txtQueueCount = New System.Windows.Forms.TextBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.btnAddQueue = New System.Windows.Forms.Button()
         Me.labelTitle = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnSaveQueue = New System.Windows.Forms.Button()
         Me.datagridQueue = New System.Windows.Forms.DataGridView()
         Me.queueNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.algorrithm = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.algorithm = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.timeQuantum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
-        Me.Panel3.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.datagridQueue, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -96,6 +99,7 @@ Partial Class MainPopup
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(970, 66)
         Me.TableLayoutPanel2.TabIndex = 3
         '
@@ -131,65 +135,28 @@ Partial Class MainPopup
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.labelBldgNo, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Panel3, 1, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Panel4, 2, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Panel5, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Panel4, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.labelQueueNo, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Panel3, 0, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(485, 1)
-        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(488, 4)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(484, 64)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(478, 58)
         Me.TableLayoutPanel4.TabIndex = 1
         '
-        'labelBldgNo
+        'Panel5
         '
-        Me.labelBldgNo.AutoSize = True
-        Me.labelBldgNo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.labelBldgNo.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelBldgNo.Location = New System.Drawing.Point(3, 0)
-        Me.labelBldgNo.Name = "labelBldgNo"
-        Me.labelBldgNo.Size = New System.Drawing.Size(90, 64)
-        Me.labelBldgNo.TabIndex = 103
-        Me.labelBldgNo.Text = "QUEUE COUNT:"
-        Me.labelBldgNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.txtQueueCount)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(96, 0)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Padding = New System.Windows.Forms.Padding(10, 18, 10, 18)
-        Me.Panel3.Size = New System.Drawing.Size(290, 64)
-        Me.Panel3.TabIndex = 0
-        '
-        'txtQueueCount
-        '
-        Me.txtQueueCount.BackColor = System.Drawing.Color.White
-        Me.txtQueueCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtQueueCount.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtQueueCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtQueueCount.ForeColor = System.Drawing.Color.Black
-        Me.txtQueueCount.Location = New System.Drawing.Point(10, 18)
-        Me.txtQueueCount.MaxLength = 100
-        Me.txtQueueCount.Multiline = True
-        Me.txtQueueCount.Name = "txtQueueCount"
-        Me.txtQueueCount.Size = New System.Drawing.Size(270, 28)
-        Me.txtQueueCount.TabIndex = 3
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.btnAddQueue)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(386, 0)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Padding = New System.Windows.Forms.Padding(5, 12, 5, 12)
-        Me.Panel4.Size = New System.Drawing.Size(48, 64)
-        Me.Panel4.TabIndex = 104
+        Me.Panel5.Controls.Add(Me.btnAddQueue)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel5.Location = New System.Drawing.Point(381, 0)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Padding = New System.Windows.Forms.Padding(5, 12, 5, 12)
+        Me.Panel5.Size = New System.Drawing.Size(47, 58)
+        Me.Panel5.TabIndex = 119
         '
         'btnAddQueue
         '
@@ -205,11 +172,80 @@ Partial Class MainPopup
         Me.btnAddQueue.Location = New System.Drawing.Point(5, 12)
         Me.btnAddQueue.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnAddQueue.Name = "btnAddQueue"
-        Me.btnAddQueue.Size = New System.Drawing.Size(38, 40)
-        Me.btnAddQueue.TabIndex = 105
+        Me.btnAddQueue.Size = New System.Drawing.Size(37, 34)
+        Me.btnAddQueue.TabIndex = 108
         Me.btnAddQueue.TabStop = False
         Me.btnAddQueue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnAddQueue.UseVisualStyleBackColor = False
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.btnClear)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(428, 0)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Padding = New System.Windows.Forms.Padding(5, 12, 5, 12)
+        Me.Panel4.Size = New System.Drawing.Size(50, 58)
+        Me.Panel4.TabIndex = 118
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.btnClear.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.ForeColor = System.Drawing.Color.White
+        Me.btnClear.Image = Global.CPU_Scheduling___Multi_Level_Queue.My.Resources.Resources.delete_white
+        Me.btnClear.Location = New System.Drawing.Point(5, 12)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(40, 34)
+        Me.btnClear.TabIndex = 109
+        Me.btnClear.TabStop = False
+        Me.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
+        'labelQueueNo
+        '
+        Me.labelQueueNo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.labelQueueNo.Font = New System.Drawing.Font("Verdana", 12.0!)
+        Me.labelQueueNo.ForeColor = System.Drawing.Color.Black
+        Me.labelQueueNo.Location = New System.Drawing.Point(3, 0)
+        Me.labelQueueNo.Name = "labelQueueNo"
+        Me.labelQueueNo.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.labelQueueNo.Size = New System.Drawing.Size(89, 58)
+        Me.labelQueueNo.TabIndex = 116
+        Me.labelQueueNo.Text = "QUEUE COUNT:"
+        Me.labelQueueNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.txtQueueCount)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(95, 0)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Padding = New System.Windows.Forms.Padding(10, 16, 10, 16)
+        Me.Panel3.Size = New System.Drawing.Size(286, 58)
+        Me.Panel3.TabIndex = 117
+        '
+        'txtQueueCount
+        '
+        Me.txtQueueCount.BackColor = System.Drawing.Color.White
+        Me.txtQueueCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtQueueCount.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtQueueCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtQueueCount.ForeColor = System.Drawing.Color.Black
+        Me.txtQueueCount.Location = New System.Drawing.Point(10, 16)
+        Me.txtQueueCount.MaxLength = 100
+        Me.txtQueueCount.Multiline = True
+        Me.txtQueueCount.Name = "txtQueueCount"
+        Me.txtQueueCount.Size = New System.Drawing.Size(266, 26)
+        Me.txtQueueCount.TabIndex = 115
         '
         'labelTitle
         '
@@ -281,7 +317,7 @@ Partial Class MainPopup
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.datagridQueue.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.datagridQueue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.datagridQueue.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.queueNo, Me.algorrithm, Me.timeQuantum})
+        Me.datagridQueue.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.queueNo, Me.algorithm, Me.timeQuantum})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -319,13 +355,13 @@ Partial Class MainPopup
         Me.queueNo.ReadOnly = True
         Me.queueNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
         '
-        'algorrithm
+        'algorithm
         '
-        Me.algorrithm.HeaderText = "Algorithm"
-        Me.algorrithm.Items.AddRange(New Object() {"FIRST COME FIRST SERVE", "ROUND ROBIN"})
-        Me.algorrithm.Name = "algorrithm"
-        Me.algorrithm.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.algorrithm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        Me.algorithm.HeaderText = "Algorithm"
+        Me.algorithm.Items.AddRange(New Object() {"FIRST COME FIRST SERVE", "ROUND ROBIN"})
+        Me.algorithm.Name = "algorithm"
+        Me.algorithm.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.algorithm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
         '
         'timeQuantum
         '
@@ -348,10 +384,10 @@ Partial Class MainPopup
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         CType(Me.datagridQueue, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -370,10 +406,12 @@ Partial Class MainPopup
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents txtQueueCount As TextBox
-    Friend WithEvents labelBldgNo As Label
     Friend WithEvents Panel4 As Panel
+    Friend WithEvents labelQueueNo As Label
+    Friend WithEvents Panel5 As Panel
     Friend WithEvents btnAddQueue As Button
+    Friend WithEvents btnClear As Button
     Friend WithEvents queueNo As DataGridViewTextBoxColumn
-    Friend WithEvents algorrithm As DataGridViewComboBoxColumn
+    Friend WithEvents algorithm As DataGridViewComboBoxColumn
     Friend WithEvents timeQuantum As DataGridViewTextBoxColumn
 End Class
