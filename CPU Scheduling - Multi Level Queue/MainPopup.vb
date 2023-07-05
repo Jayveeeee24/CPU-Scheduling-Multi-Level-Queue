@@ -6,7 +6,7 @@
         Public Property Algorithm As String
         Public Property TimeQuantum As Integer
     End Class
-    Dim queues As New List(Of Queue)()
+    Dim queues As New List(Of MainPopup.Queue)()
 
 
     Private Sub MainPopup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -104,7 +104,8 @@
             queues.Add(queue)
         Next
 
-        MainForm.queueCount = datagridQueue.Rows.Count
+        MainForm.multiLevel = comboChooseMultiLevel.Text
+        MainForm.queueCount = queues.Count
         MainForm.Queues = queues
         Me.Hide()
         MainForm.Show()
