@@ -104,6 +104,7 @@
             queues.Add(queue)
         Next
 
+        MainForm.queueCount = datagridQueue.Rows.Count
         MainForm.Queues = queues
         Me.Hide()
         MainForm.Show()

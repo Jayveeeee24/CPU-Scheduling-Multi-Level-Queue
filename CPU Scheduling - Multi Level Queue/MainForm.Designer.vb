@@ -39,7 +39,7 @@ Partial Class MainForm
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.labelAveTurn = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.datagridComputation = New System.Windows.Forms.DataGridView()
+        Me.datagridLog = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.arrival = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.burst = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,7 +66,7 @@ Partial Class MainForm
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.datagridComputation, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.datagridLog, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datagridInitial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -98,6 +98,7 @@ Partial Class MainForm
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 42)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
         Me.TableLayoutPanel1.RowCount = 4
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
@@ -115,13 +116,13 @@ Partial Class MainForm
         Me.TableLayoutPanel4.Controls.Add(Me.GroupBox2, 1, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.GroupBox1, 0, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(0, 495)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(10, 495)
         Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(1199, 96)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(1179, 96)
         Me.TableLayoutPanel4.TabIndex = 11
         '
         'GroupBox2
@@ -130,9 +131,9 @@ Partial Class MainForm
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(603, 4)
+        Me.GroupBox2.Location = New System.Drawing.Point(593, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(592, 83)
+        Me.GroupBox2.Size = New System.Drawing.Size(582, 83)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "AVERAGE WAITING TIME"
@@ -145,7 +146,7 @@ Partial Class MainForm
         Me.labelAveWait.Location = New System.Drawing.Point(3, 17)
         Me.labelAveWait.Name = "labelAveWait"
         Me.labelAveWait.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.labelAveWait.Size = New System.Drawing.Size(586, 63)
+        Me.labelAveWait.Size = New System.Drawing.Size(576, 63)
         Me.labelAveWait.TabIndex = 4
         Me.labelAveWait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -157,7 +158,7 @@ Partial Class MainForm
         Me.GroupBox1.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(592, 83)
+        Me.GroupBox1.Size = New System.Drawing.Size(582, 83)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "AVERAGE TURNAROUND TIME"
@@ -170,7 +171,7 @@ Partial Class MainForm
         Me.labelAveTurn.Location = New System.Drawing.Point(3, 17)
         Me.labelAveTurn.Name = "labelAveTurn"
         Me.labelAveTurn.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.labelAveTurn.Size = New System.Drawing.Size(586, 63)
+        Me.labelAveTurn.Size = New System.Drawing.Size(576, 63)
         Me.labelAveTurn.TabIndex = 3
         Me.labelAveTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -179,26 +180,26 @@ Partial Class MainForm
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.95977!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.04024!))
-        Me.TableLayoutPanel2.Controls.Add(Me.datagridComputation, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.datagridLog, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.datagridInitial, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 50)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(13, 50)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1193, 350)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1173, 350)
         Me.TableLayoutPanel2.TabIndex = 2
         '
-        'datagridComputation
+        'datagridLog
         '
-        Me.datagridComputation.AllowUserToAddRows = False
-        Me.datagridComputation.AllowUserToDeleteRows = False
-        Me.datagridComputation.AllowUserToResizeColumns = False
-        Me.datagridComputation.AllowUserToResizeRows = False
-        Me.datagridComputation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.datagridComputation.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.datagridComputation.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.datagridComputation.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.datagridLog.AllowUserToAddRows = False
+        Me.datagridLog.AllowUserToDeleteRows = False
+        Me.datagridLog.AllowUserToResizeColumns = False
+        Me.datagridLog.AllowUserToResizeRows = False
+        Me.datagridLog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.datagridLog.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.datagridLog.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.datagridLog.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -207,9 +208,9 @@ Partial Class MainForm
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datagridComputation.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.datagridComputation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.datagridComputation.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.arrival, Me.burst, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.Column5})
+        Me.datagridLog.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.datagridLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.datagridLog.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.arrival, Me.burst, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.Column5})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -218,13 +219,13 @@ Partial Class MainForm
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(117, Byte), Integer), CType(CType(211, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.datagridComputation.DefaultCellStyle = DataGridViewCellStyle2
-        Me.datagridComputation.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.datagridComputation.Location = New System.Drawing.Point(430, 3)
-        Me.datagridComputation.Margin = New System.Windows.Forms.Padding(1, 3, 0, 3)
-        Me.datagridComputation.MultiSelect = False
-        Me.datagridComputation.Name = "datagridComputation"
-        Me.datagridComputation.ReadOnly = True
+        Me.datagridLog.DefaultCellStyle = DataGridViewCellStyle2
+        Me.datagridLog.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.datagridLog.Location = New System.Drawing.Point(422, 3)
+        Me.datagridLog.Margin = New System.Windows.Forms.Padding(1, 3, 0, 3)
+        Me.datagridLog.MultiSelect = False
+        Me.datagridLog.Name = "datagridLog"
+        Me.datagridLog.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -233,13 +234,13 @@ Partial Class MainForm
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datagridComputation.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.datagridComputation.RowHeadersVisible = False
+        Me.datagridLog.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.datagridLog.RowHeadersVisible = False
         DataGridViewCellStyle4.Padding = New System.Windows.Forms.Padding(5)
-        Me.datagridComputation.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.datagridComputation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.datagridComputation.Size = New System.Drawing.Size(763, 344)
-        Me.datagridComputation.TabIndex = 12
+        Me.datagridLog.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.datagridLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.datagridLog.Size = New System.Drawing.Size(751, 344)
+        Me.datagridLog.TabIndex = 12
         '
         'DataGridViewTextBoxColumn3
         '
@@ -328,7 +329,7 @@ Partial Class MainForm
         DataGridViewCellStyle8.Padding = New System.Windows.Forms.Padding(5)
         Me.datagridInitial.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.datagridInitial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.datagridInitial.Size = New System.Drawing.Size(428, 344)
+        Me.datagridInitial.Size = New System.Drawing.Size(420, 344)
         Me.datagridInitial.TabIndex = 11
         '
         'Panel1
@@ -336,10 +337,10 @@ Partial Class MainForm
         Me.Panel1.Controls.Add(Me.tableGanttChart)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 403)
+        Me.Panel1.Location = New System.Drawing.Point(10, 403)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1199, 89)
+        Me.Panel1.Size = New System.Drawing.Size(1179, 89)
         Me.Panel1.TabIndex = 9
         '
         'tableGanttChart
@@ -353,7 +354,7 @@ Partial Class MainForm
         Me.tableGanttChart.Name = "tableGanttChart"
         Me.tableGanttChart.RowCount = 1
         Me.tableGanttChart.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tableGanttChart.Size = New System.Drawing.Size(1199, 55)
+        Me.tableGanttChart.Size = New System.Drawing.Size(1179, 55)
         Me.tableGanttChart.TabIndex = 9
         '
         'Label2
@@ -364,7 +365,7 @@ Partial Class MainForm
         Me.Label2.Location = New System.Drawing.Point(0, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.Label2.Size = New System.Drawing.Size(1199, 34)
+        Me.Label2.Size = New System.Drawing.Size(1179, 34)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Gantt Chart"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -374,10 +375,10 @@ Partial Class MainForm
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.TableLayoutPanel3)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Location = New System.Drawing.Point(10, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1199, 47)
+        Me.Panel2.Size = New System.Drawing.Size(1179, 47)
         Me.Panel2.TabIndex = 10
         '
         'TableLayoutPanel3
@@ -401,7 +402,7 @@ Partial Class MainForm
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1197, 45)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1177, 45)
         Me.TableLayoutPanel3.TabIndex = 2
         '
         'btnRemoveLast
@@ -415,11 +416,11 @@ Partial Class MainForm
         Me.btnRemoveLast.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemoveLast.ForeColor = System.Drawing.Color.White
         Me.btnRemoveLast.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRemoveLast.Location = New System.Drawing.Point(162, 3)
+        Me.btnRemoveLast.Location = New System.Drawing.Point(160, 3)
         Me.btnRemoveLast.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnRemoveLast.Name = "btnRemoveLast"
         Me.btnRemoveLast.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnRemoveLast.Size = New System.Drawing.Size(143, 39)
+        Me.btnRemoveLast.Size = New System.Drawing.Size(141, 39)
         Me.btnRemoveLast.TabIndex = 32
         Me.btnRemoveLast.TabStop = False
         Me.btnRemoveLast.Text = "Remove Last"
@@ -437,11 +438,11 @@ Partial Class MainForm
         Me.btnFinishSimulation.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFinishSimulation.ForeColor = System.Drawing.Color.White
         Me.btnFinishSimulation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnFinishSimulation.Location = New System.Drawing.Point(758, 3)
+        Me.btnFinishSimulation.Location = New System.Drawing.Point(748, 3)
         Me.btnFinishSimulation.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnFinishSimulation.Name = "btnFinishSimulation"
         Me.btnFinishSimulation.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnFinishSimulation.Size = New System.Drawing.Size(155, 39)
+        Me.btnFinishSimulation.Size = New System.Drawing.Size(152, 39)
         Me.btnFinishSimulation.TabIndex = 35
         Me.btnFinishSimulation.TabStop = False
         Me.btnFinishSimulation.Text = "Finish Simulation"
@@ -463,7 +464,7 @@ Partial Class MainForm
         Me.btnAddProcess.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnAddProcess.Name = "btnAddProcess"
         Me.btnAddProcess.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnAddProcess.Size = New System.Drawing.Size(143, 39)
+        Me.btnAddProcess.Size = New System.Drawing.Size(141, 39)
         Me.btnAddProcess.TabIndex = 31
         Me.btnAddProcess.TabStop = False
         Me.btnAddProcess.Text = "Add Process"
@@ -481,11 +482,11 @@ Partial Class MainForm
         Me.btnStartSimulation.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStartSimulation.ForeColor = System.Drawing.Color.White
         Me.btnStartSimulation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnStartSimulation.Location = New System.Drawing.Point(603, 3)
+        Me.btnStartSimulation.Location = New System.Drawing.Point(595, 3)
         Me.btnStartSimulation.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnStartSimulation.Name = "btnStartSimulation"
         Me.btnStartSimulation.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnStartSimulation.Size = New System.Drawing.Size(143, 39)
+        Me.btnStartSimulation.Size = New System.Drawing.Size(141, 39)
         Me.btnStartSimulation.TabIndex = 34
         Me.btnStartSimulation.TabStop = False
         Me.btnStartSimulation.Text = "Start Simulation"
@@ -503,11 +504,11 @@ Partial Class MainForm
         Me.btnClearProcess.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearProcess.ForeColor = System.Drawing.Color.White
         Me.btnClearProcess.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClearProcess.Location = New System.Drawing.Point(317, 3)
+        Me.btnClearProcess.Location = New System.Drawing.Point(313, 3)
         Me.btnClearProcess.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnClearProcess.Name = "btnClearProcess"
         Me.btnClearProcess.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnClearProcess.Size = New System.Drawing.Size(143, 39)
+        Me.btnClearProcess.Size = New System.Drawing.Size(141, 39)
         Me.btnClearProcess.TabIndex = 32
         Me.btnClearProcess.TabStop = False
         Me.btnClearProcess.Text = "Clear Process"
@@ -518,6 +519,7 @@ Partial Class MainForm
         '
         Me.processID.HeaderText = "Process ID"
         Me.processID.Name = "processID"
+        Me.processID.ReadOnly = True
         Me.processID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
         '
         'arrivalTime
@@ -555,7 +557,7 @@ Partial Class MainForm
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
-        CType(Me.datagridComputation, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.datagridLog, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.datagridInitial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
@@ -567,7 +569,7 @@ Partial Class MainForm
     Friend WithEvents labelTitle As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents datagridComputation As DataGridView
+    Friend WithEvents datagridLog As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents arrival As DataGridViewTextBoxColumn
     Friend WithEvents burst As DataGridViewTextBoxColumn
