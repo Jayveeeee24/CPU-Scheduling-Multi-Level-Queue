@@ -99,7 +99,25 @@ Public Class MainForm
 
         InitializeProcesses()
 
-        ProcessQueues()
+        btnFinishSimulation.Enabled = False
+        btnAddProcess.Enabled = False
+        btnRemoveLast.Enabled = False
+        btnClearProcess.Enabled = False
+        btnStartSimulation.Enabled = False
+
+        If ProcessQueues(0.6) = True Then
+
+            MsgBox("CPU SCHEDULE FINISHED!", vbInformation, "PROCESS FINISHED")
+
+            datagridInitial.ClearSelection()
+            datagridLog.ClearSelection()
+            btnFinishSimulation.Enabled = True
+            btnAddProcess.Enabled = True
+            btnRemoveLast.Enabled = True
+            btnClearProcess.Enabled = True
+            btnStartSimulation.Enabled = True
+        End If
+
 
     End Sub
 
@@ -108,14 +126,22 @@ Public Class MainForm
             Exit Sub
         End If
 
-
+        ProcessQueues(0)
         MsgBox("CPU SCHEDULE FINISHED!", vbInformation, "PROCESS FINISHED")
 
         datagridInitial.ClearSelection()
         datagridLog.ClearSelection()
     End Sub
 
-    Private Sub ProcessQueues()
+
+
+    Private Sub wait(ByVal seconds As Integer)
+        For j As Integer = 0 To seconds * 100
+            System.Threading.Thread.Sleep(10)
+            Application.DoEvents()
+        Next
+    End Sub
+    Private Function ProcessQueues(waitTime As Integer) As Boolean
         Dim currentTime As Integer = 0
         Dim queueIndex As Integer = 0
         Dim completedProcesses As New List(Of Process) 'for now lagay muna
@@ -150,29 +176,36 @@ Public Class MainForm
                 If algorithm = "FIRST COME FIRST SERVE" Then
                     burstTime = firstProcess.BurstTime
                 ElseIf algorithm = "ROUND ROBIN" Then
-                    burstTime = Integer.Parse(queueWithProcess.TimeQuantum)
                     timeQuantum = Integer.Parse(queueWithProcess.TimeQuantum)
+
+                    If firstProcess.BurstTime >= timeQuantum Then
+                        burstTime = Integer.Parse(queueWithProcess.TimeQuantum)
+                    Else
+                        burstTime = firstProcess.BurstTime
+                    End If
                 End If
 
                 completionTime = arrivalTime + burstTime
                 turnAroundTime = completionTime - arrivalTime
-                waitingTime = turnAroundTime - burstTime
+                waitingTime = 0
 
                 addLog(firstProcess.ProcessID, arrivalTime, burstTime, completionTime, turnAroundTime, waitingTime)
+                wait(waitTime)
 
                 multiLevelQueues.ForEach(Sub(queue) queue.Processes.RemoveAll(Function(process) process.ProcessID = firstProcess.ProcessID))
 
                 If algorithm = "ROUND ROBIN" Then
-                    Dim newBurstTime As Integer
-                    If Integer.Parse(burstTime) > Integer.Parse(timeQuantum) Then
-                        newBurstTime = firstProcess.BurstTime - Integer.Parse(timeQuantum)
+                    Dim newBurstTime As Integer = firstProcess.BurstTime - timeQuantum
+
+                    MsgBox("BURST: " + firstProcess.BurstTime.ToString + " TIME QUANTUM: " + timeQuantum.ToString)
+                    If newBurstTime > 0 Then
+                        Dim process As New Process(processId, Integer.Parse(timeQuantum).ToString, newBurstTime.ToString)
+                        multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess)).Processes.Add(process)
                     End If
 
-                    Dim process As New Process(processId, Integer.Parse(timeQuantum).ToString, newBurstTime.ToString)
-                    multiLevelQueues(0).Processes.Add(process)
                 End If
 
-                If multiLevelQueues(0).Processes.Count <= 0 Then
+                If multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess)).Processes.Count <= 0 Then
                     multiLevelQueues.RemoveAt(0)
                 End If
 
@@ -207,23 +240,27 @@ Public Class MainForm
                     origBurstTime = currentProcess.BurstTime
                 ElseIf multiLevelQueues(queueIndex).Algorithm = "ROUND ROBIN" Then
                     timeQuantum = multiLevelQueues(queueIndex).TimeQuantum
-                    origBurstTime = timeQuantum
+
+                    If currentProcess.BurstTime >= timeQuantum Then
+                        origBurstTime = timeQuantum
+                    Else
+                        origBurstTime = currentProcess.BurstTime
+                    End If
                 End If
 
                 completionTime = currentTime + origBurstTime
                 turnAroundTime = completionTime - arrivalTime
-                waitingTime = currentTime - arrivalTime
-
-                MsgBox("adding sa LOG to")
+                waitingTime = currentTime
 
                 addLog(currentProcess.ProcessID, currentTime, origBurstTime, completionTime, turnAroundTime, waitingTime)
+                wait(waitTime)
+
                 multiLevelQueues.ForEach(Sub(queue) queue.Processes.RemoveAll(Function(process) process.ProcessID = processId))
 
-                MsgBox("adding sa process to")
                 If multiLevelQueues(queueIndex).Algorithm = "ROUND ROBIN" Then
                     Dim newBurstTime As Integer = currentProcess.BurstTime - timeQuantum
                     If newBurstTime > 0 Then
-                        Dim process As New Process(processId, Integer.Parse(timeQuantum).ToString, newBurstTime.ToString)
+                        Dim process As New Process(processId, newBurstTime, newBurstTime.ToString)
                         multiLevelQueues(queueIndex).Processes.Add(process)
                     End If
                 End If
@@ -244,10 +281,8 @@ Public Class MainForm
 
         End While
 
-        'For Each process In completedProcesses
-        '    datagridLog.Rows.Add(process.ProcessID, process.ArrivalTime, process.BurstTime, process.CompletionTime, process.TurnaroundTime, process.WaitingTime)
-        'Next
-    End Sub
+        Return AllQueuesEmpty() = True
+    End Function
 
 
     Private Function AllQueuesEmpty() As Boolean
