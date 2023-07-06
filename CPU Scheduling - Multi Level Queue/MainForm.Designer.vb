@@ -45,9 +45,6 @@ Partial Class MainForm
         Me.arrivalTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.burstTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.queueNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.tableGanttChart = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnRemoveLast = New System.Windows.Forms.Button()
@@ -68,7 +65,6 @@ Partial Class MainForm
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.datagridLog, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datagridInitial, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
@@ -91,19 +87,18 @@ Partial Class MainForm
         '
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel4, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel4, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel2, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 42)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
-        Me.TableLayoutPanel1.RowCount = 4
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.0!))
+        Me.TableLayoutPanel1.RowCount = 3
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.411765!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.58823!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1199, 594)
         Me.TableLayoutPanel1.TabIndex = 3
         '
@@ -116,13 +111,13 @@ Partial Class MainForm
         Me.TableLayoutPanel4.Controls.Add(Me.GroupBox2, 1, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.GroupBox1, 0, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(10, 495)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(10, 477)
         Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(1179, 96)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(1179, 114)
         Me.TableLayoutPanel4.TabIndex = 11
         '
         'GroupBox2
@@ -133,7 +128,7 @@ Partial Class MainForm
         Me.GroupBox2.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(593, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(582, 83)
+        Me.GroupBox2.Size = New System.Drawing.Size(582, 101)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "AVERAGE WAITING TIME"
@@ -146,7 +141,7 @@ Partial Class MainForm
         Me.labelAveWait.Location = New System.Drawing.Point(3, 17)
         Me.labelAveWait.Name = "labelAveWait"
         Me.labelAveWait.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.labelAveWait.Size = New System.Drawing.Size(576, 63)
+        Me.labelAveWait.Size = New System.Drawing.Size(576, 81)
         Me.labelAveWait.TabIndex = 4
         Me.labelAveWait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -158,7 +153,7 @@ Partial Class MainForm
         Me.GroupBox1.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(582, 83)
+        Me.GroupBox1.Size = New System.Drawing.Size(582, 101)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "AVERAGE TURNAROUND TIME"
@@ -171,7 +166,7 @@ Partial Class MainForm
         Me.labelAveTurn.Location = New System.Drawing.Point(3, 17)
         Me.labelAveTurn.Name = "labelAveTurn"
         Me.labelAveTurn.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.labelAveTurn.Size = New System.Drawing.Size(576, 63)
+        Me.labelAveTurn.Size = New System.Drawing.Size(576, 81)
         Me.labelAveTurn.TabIndex = 3
         Me.labelAveTurn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -183,11 +178,11 @@ Partial Class MainForm
         Me.TableLayoutPanel2.Controls.Add(Me.datagridLog, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.datagridInitial, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(13, 50)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(13, 58)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1173, 350)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1173, 413)
         Me.TableLayoutPanel2.TabIndex = 2
         '
         'datagridLog
@@ -239,7 +234,7 @@ Partial Class MainForm
         DataGridViewCellStyle4.Padding = New System.Windows.Forms.Padding(5)
         Me.datagridLog.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.datagridLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.datagridLog.Size = New System.Drawing.Size(751, 344)
+        Me.datagridLog.Size = New System.Drawing.Size(751, 407)
         Me.datagridLog.TabIndex = 12
         '
         'datagridInitial
@@ -290,7 +285,7 @@ Partial Class MainForm
         DataGridViewCellStyle8.Padding = New System.Windows.Forms.Padding(5)
         Me.datagridInitial.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.datagridInitial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.datagridInitial.Size = New System.Drawing.Size(420, 344)
+        Me.datagridInitial.Size = New System.Drawing.Size(420, 407)
         Me.datagridInitial.TabIndex = 11
         '
         'processID
@@ -318,44 +313,6 @@ Partial Class MainForm
         Me.queueNo.Name = "queueNo"
         Me.queueNo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.tableGanttChart)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(10, 403)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1179, 89)
-        Me.Panel1.TabIndex = 9
-        '
-        'tableGanttChart
-        '
-        Me.tableGanttChart.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.tableGanttChart.ColumnCount = 2
-        Me.tableGanttChart.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tableGanttChart.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tableGanttChart.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tableGanttChart.Location = New System.Drawing.Point(0, 34)
-        Me.tableGanttChart.Name = "tableGanttChart"
-        Me.tableGanttChart.RowCount = 1
-        Me.tableGanttChart.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tableGanttChart.Size = New System.Drawing.Size(1179, 55)
-        Me.tableGanttChart.TabIndex = 9
-        '
-        'Label2
-        '
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(0, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.Label2.Size = New System.Drawing.Size(1179, 34)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Gantt Chart"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -364,7 +321,7 @@ Partial Class MainForm
         Me.Panel2.Location = New System.Drawing.Point(10, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1179, 47)
+        Me.Panel2.Size = New System.Drawing.Size(1179, 55)
         Me.Panel2.TabIndex = 10
         '
         'TableLayoutPanel3
@@ -388,7 +345,7 @@ Partial Class MainForm
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1177, 45)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1177, 53)
         Me.TableLayoutPanel3.TabIndex = 2
         '
         'btnRemoveLast
@@ -406,7 +363,7 @@ Partial Class MainForm
         Me.btnRemoveLast.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnRemoveLast.Name = "btnRemoveLast"
         Me.btnRemoveLast.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnRemoveLast.Size = New System.Drawing.Size(141, 39)
+        Me.btnRemoveLast.Size = New System.Drawing.Size(141, 47)
         Me.btnRemoveLast.TabIndex = 32
         Me.btnRemoveLast.TabStop = False
         Me.btnRemoveLast.Text = "Remove Last"
@@ -428,7 +385,7 @@ Partial Class MainForm
         Me.btnFinishSimulation.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnFinishSimulation.Name = "btnFinishSimulation"
         Me.btnFinishSimulation.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnFinishSimulation.Size = New System.Drawing.Size(149, 39)
+        Me.btnFinishSimulation.Size = New System.Drawing.Size(149, 47)
         Me.btnFinishSimulation.TabIndex = 35
         Me.btnFinishSimulation.TabStop = False
         Me.btnFinishSimulation.Text = "Finish Simulation"
@@ -450,7 +407,7 @@ Partial Class MainForm
         Me.btnAddProcess.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnAddProcess.Name = "btnAddProcess"
         Me.btnAddProcess.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnAddProcess.Size = New System.Drawing.Size(141, 39)
+        Me.btnAddProcess.Size = New System.Drawing.Size(141, 47)
         Me.btnAddProcess.TabIndex = 31
         Me.btnAddProcess.TabStop = False
         Me.btnAddProcess.Text = "Add Process"
@@ -472,7 +429,7 @@ Partial Class MainForm
         Me.btnStartSimulation.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnStartSimulation.Name = "btnStartSimulation"
         Me.btnStartSimulation.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnStartSimulation.Size = New System.Drawing.Size(144, 39)
+        Me.btnStartSimulation.Size = New System.Drawing.Size(144, 47)
         Me.btnStartSimulation.TabIndex = 34
         Me.btnStartSimulation.TabStop = False
         Me.btnStartSimulation.Text = "Start Simulation"
@@ -494,7 +451,7 @@ Partial Class MainForm
         Me.btnClearProcess.Margin = New System.Windows.Forms.Padding(7, 3, 5, 3)
         Me.btnClearProcess.Name = "btnClearProcess"
         Me.btnClearProcess.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.btnClearProcess.Size = New System.Drawing.Size(141, 39)
+        Me.btnClearProcess.Size = New System.Drawing.Size(141, 47)
         Me.btnClearProcess.TabIndex = 32
         Me.btnClearProcess.TabStop = False
         Me.btnClearProcess.Text = "Clear Process"
@@ -558,7 +515,6 @@ Partial Class MainForm
         Me.TableLayoutPanel2.ResumeLayout(False)
         CType(Me.datagridLog, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.datagridInitial, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -570,9 +526,6 @@ Partial Class MainForm
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents datagridLog As DataGridView
     Friend WithEvents datagridInitial As DataGridView
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents tableGanttChart As TableLayoutPanel
-    Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents btnRemoveLast As Button

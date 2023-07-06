@@ -32,6 +32,11 @@
             Exit Sub
         End If
 
+        If Integer.Parse(txtQueueCount.Text) > 5 Then
+            MsgBox("MAX QUEUE COUNT IS 5!", vbCritical, "Warning")
+            Exit Sub
+        End If
+
         For i As Integer = 0 To Integer.Parse(txtQueueCount.Text) - 1
             datagridQueue.Rows.Add((i + 1), "", "")
         Next

@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports CPU_Scheduling___Multi_Level_Queue.MainForm
 Imports System
+Imports System.Configuration
 
 Public Class MainForm
 
@@ -87,9 +88,7 @@ Public Class MainForm
 
     Private Sub btnClearProcess_Click(sender As Object, e As EventArgs) Handles btnClearProcess.Click
         initialSetup(datagridInitial, datagridLog, btnAddProcess, labelAveTurn, labelAveWait)
-        tableGanttChart.Controls.Clear()
-        tableGanttChart.ColumnStyles.Clear()
-        tableGanttChart.ColumnCount = 0
+
     End Sub
 
     Private Sub btnStartSimulation_Click(sender As Object, e As EventArgs) Handles btnStartSimulation.Click
@@ -126,6 +125,7 @@ Public Class MainForm
             Exit Sub
         End If
 
+        InitializeProcesses()
         ProcessQueues(0)
         MsgBox("CPU SCHEDULE FINISHED!", vbInformation, "PROCESS FINISHED")
 
@@ -142,14 +142,23 @@ Public Class MainForm
         Next
     End Sub
     Private Function ProcessQueues(waitTime As Integer) As Boolean
+        If datagridInitial.Rows.Count < 1 Then
+            MsgBox("NO DATA TO SIMULATE!", vbCritical, "PROCESS FINISHED")
+            Exit Function
+        End If
+
         Dim currentTime As Integer = 0
         Dim queueIndex As Integer = 0
-        Dim completedProcesses As New List(Of Process) 'for now lagay muna
-
+        Dim totalWaitingTime As Integer = 0
+        Dim totalTurnAroundTime As Integer = 0
 
         For Each queue In multiLevelQueues
             queue.Processes = queue.Processes.OrderBy(Function(p) p.ArrivalTime).ThenBy(Function(p) p.ProcessID).ToList()
         Next
+
+        labelAveWait.Text = ""
+        labelAveTurn.Text = ""
+        Dim currentColumn As Integer = 0
 
         While Not AllQueuesEmpty()
 
@@ -172,7 +181,6 @@ Public Class MainForm
                 Dim completionTime As Integer
                 Dim timeQuantum As Integer
 
-
                 If algorithm = "FIRST COME FIRST SERVE" Then
                     burstTime = firstProcess.BurstTime
                 ElseIf algorithm = "ROUND ROBIN" Then
@@ -188,8 +196,11 @@ Public Class MainForm
                 completionTime = arrivalTime + burstTime
                 turnAroundTime = completionTime - arrivalTime
                 waitingTime = 0
+                totalWaitingTime += waitingTime
+                totalTurnAroundTime += turnAroundTime
 
                 addLog(firstProcess.ProcessID, arrivalTime, burstTime, completionTime, turnAroundTime, waitingTime)
+
                 wait(waitTime)
 
                 multiLevelQueues.ForEach(Sub(queue) queue.Processes.RemoveAll(Function(process) process.ProcessID = firstProcess.ProcessID))
@@ -200,9 +211,12 @@ Public Class MainForm
                     MsgBox("BURST: " + firstProcess.BurstTime.ToString + " TIME QUANTUM: " + timeQuantum.ToString)
                     If newBurstTime > 0 Then
                         Dim process As New Process(processId, Integer.Parse(timeQuantum).ToString, newBurstTime.ToString)
-                        multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess)).Processes.Add(process)
+                        If currentPage = "MULTI LEVEL QUEUE" Then
+                            multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess)).Processes.Add(process)
+                        ElseIf currentPage = "MULTI LEVEL FEEDBACK QUEUE" Then
+                            multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess) + 1).Processes.Add(process)
+                        End If
                     End If
-
                 End If
 
                 If multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess)).Processes.Count <= 0 Then
@@ -252,6 +266,8 @@ Public Class MainForm
                 turnAroundTime = completionTime - arrivalTime
                 waitingTime = currentTime
 
+                totalWaitingTime += waitingTime
+                totalTurnAroundTime += turnAroundTime
                 addLog(currentProcess.ProcessID, currentTime, origBurstTime, completionTime, turnAroundTime, waitingTime)
                 wait(waitTime)
 
@@ -261,9 +277,15 @@ Public Class MainForm
                     Dim newBurstTime As Integer = currentProcess.BurstTime - timeQuantum
                     If newBurstTime > 0 Then
                         Dim process As New Process(processId, newBurstTime, newBurstTime.ToString)
-                        multiLevelQueues(queueIndex).Processes.Add(process)
+                        If currentPage = "MULTI LEVEL QUEUE" Then
+                            multiLevelQueues(queueIndex).Processes.Add(process)
+                        ElseIf currentPage = "MULTI LEVEL FEEDBACK QUEUE" Then
+                            multiLevelQueues(queueIndex + 1).Processes.Add(process)
+                        End If
                     End If
                 End If
+
+
 
                 currentTime = completionTime
             Else
@@ -280,6 +302,10 @@ Public Class MainForm
             End If
 
         End While
+
+        labelAveWait.Text = (Math.Round(totalWaitingTime / datagridLog.Rows.Count, 2)).ToString("N2") & " ms"
+        labelAveTurn.Text = (Math.Round(totalTurnAroundTime / datagridLog.Rows.Count, 2)).ToString("N2") & " ms"
+
 
         Return AllQueuesEmpty() = True
     End Function
@@ -309,9 +335,6 @@ Public Class MainForm
 
         datagridInitial.Rows.Clear()
         datagridDestination.Rows.Clear()
-        tableGanttChart.Controls.Clear()
-        tableGanttChart.ColumnStyles.Clear()
-        tableGanttChart.ColumnCount = 0
 
         For i As Integer = 0 To 2
             btnAdd.PerformClick()
