@@ -26,6 +26,7 @@
         End If
     End Sub
     Private Sub btnAddQueue_Click(sender As Object, e As EventArgs) Handles btnAddQueue.Click
+        datagridQueue.Rows.clear
         If txtQueueCount.Text.Trim = "" Then
             MsgBox("Please input a valid queue count!", vbCritical, "Warning")
             Exit Sub
@@ -99,12 +100,15 @@
             Dim queue As New Queue()
             queue.QueueNo = queueNoCell.Value.ToString()
             queue.Algorithm = algorithmCell.Value.ToString()
-            Integer.TryParse(timeQuantumCell.Value.ToString(), queue.TimeQuantum)
+            queue.TimeQuantum = 0
+            If algorithmCell.Value.ToString = "ROUND ROBIN" Then
+                queue.TimeQuantum = Integer.Parse(timeQuantumCell.Value.ToString())
+            End If
 
             queues.Add(queue)
         Next
 
-        MainForm.multiLevel = comboChooseMultiLevel.Text
+        MainForm.currentPage = comboChooseMultiLevel.Text
         MainForm.queueCount = queues.Count
         MainForm.Queues = queues
         Me.Hide()

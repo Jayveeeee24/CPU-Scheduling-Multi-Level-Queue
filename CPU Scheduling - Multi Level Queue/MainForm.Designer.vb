@@ -510,7 +510,7 @@ Partial Class MainForm
         '
         'arrival
         '
-        Me.arrival.HeaderText = "Arrival Time"
+        Me.arrival.HeaderText = "Time Executed"
         Me.arrival.Name = "arrival"
         Me.arrival.ReadOnly = True
         '
