@@ -208,7 +208,6 @@ Public Class MainForm
                 If algorithm = "ROUND ROBIN" Then
                     Dim newBurstTime As Integer = firstProcess.BurstTime - timeQuantum
 
-                    MsgBox("BURST: " + firstProcess.BurstTime.ToString + " TIME QUANTUM: " + timeQuantum.ToString)
                     If newBurstTime > 0 Then
                         Dim process As New Process(processId, Integer.Parse(timeQuantum).ToString, newBurstTime.ToString)
                         If currentPage.ToUpper = "MULTI LEVEL QUEUE" Then
