@@ -211,10 +211,15 @@ Public Class MainForm
                     MsgBox("BURST: " + firstProcess.BurstTime.ToString + " TIME QUANTUM: " + timeQuantum.ToString)
                     If newBurstTime > 0 Then
                         Dim process As New Process(processId, Integer.Parse(timeQuantum).ToString, newBurstTime.ToString)
-                        If currentPage = "MULTI LEVEL QUEUE" Then
+                        If currentPage.ToUpper = "MULTI LEVEL QUEUE" Then
                             multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess)).Processes.Add(process)
-                        ElseIf currentPage = "MULTI LEVEL FEEDBACK QUEUE" Then
-                            multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess) + 1).Processes.Add(process)
+                        ElseIf currentPage.ToUpper = "MULTI LEVEL FEEDBACK QUEUE" Then
+                            If multiLevelQueues.IndexOf(queueWithProcess) + 1 > (multiLevelQueues.Count - 1) Then
+                                multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess)).Processes.Add(process)
+                            Else
+                                multiLevelQueues(multiLevelQueues.IndexOf(queueWithProcess) + 1).Processes.Add(process)
+                            End If
+
                         End If
                     End If
                 End If
@@ -277,12 +282,17 @@ Public Class MainForm
                     Dim newBurstTime As Integer = currentProcess.BurstTime - timeQuantum
                     If newBurstTime > 0 Then
                         Dim process As New Process(processId, newBurstTime, newBurstTime.ToString)
-                        If currentPage = "MULTI LEVEL QUEUE" Then
+                        If currentPage.ToUpper = "MULTI LEVEL QUEUE" Then
                             multiLevelQueues(queueIndex).Processes.Add(process)
-                        ElseIf currentPage = "MULTI LEVEL FEEDBACK QUEUE" Then
-                            multiLevelQueues(queueIndex + 1).Processes.Add(process)
+                        ElseIf currentPage.ToUpper = "MULTI LEVEL FEEDBACK QUEUE" Then
+                            If queueIndex + 1 > (multiLevelQueues.Count - 1) Then
+                                multiLevelQueues(queueIndex).Processes.Add(process)
+                            Else
+                                multiLevelQueues(queueIndex + 1).Processes.Add(process)
+                            End If
+
                         End If
-                    End If
+                        End If
                 End If
 
 
